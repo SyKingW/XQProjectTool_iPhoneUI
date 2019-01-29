@@ -22,8 +22,11 @@ Pod::Spec.new do |s|
         iphoneS.resources = 'XQProjectTool/UITool/**/*.{xib}'
         
         iphoneS.dependency 'Masonry'
+        
         #关联系统framework, 后缀不要
         iphoneS.frameworks = "UIKit", "AVFoundation"
+        
+        
     end
     
     
@@ -31,7 +34,10 @@ Pod::Spec.new do |s|
     s.subspec 'Tool' do |toolS|
         toolS.osx.deployment_target  = '10.13'
         toolS.ios.deployment_target  = "9.3" #平台及版本
+        
         toolS.source_files = 'XQProjectTool/Tool/**/*.{h,m,mm}'
+        
+#        toolS.dependency 'ZBarSDK'
     end
     
     
