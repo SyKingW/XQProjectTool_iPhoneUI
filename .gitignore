@@ -69,3 +69,5 @@ Podfile.lock
 Pods/
 
 DerivedData/
+
+xcuserdata
