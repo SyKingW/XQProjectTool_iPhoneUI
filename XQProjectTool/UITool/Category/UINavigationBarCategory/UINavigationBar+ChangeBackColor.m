@@ -43,7 +43,7 @@ static NSString *overlayKey = @"NBBackColor";
         
         // iOS12的Y好像也不是负的了, 直接填0就行
         self.overlay = [[UIView alloc] initWithFrame:CGRectMake(0, -statusBarHeight, [UIScreen mainScreen].bounds.size.width, self.bounds.size.height + statusBarHeight)];
-        self.overlay.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+        self.overlay.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.overlay.userInteractionEnabled = NO;
         
         for (UIView *view in self.subviews) {
