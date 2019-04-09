@@ -137,6 +137,13 @@
         NSError *jError = nil;
         id jsonData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jError];
         
+        if (jError && jError.code == 3840) {
+            jsonData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            if (jsonData) {
+                jError = nil;
+            }
+        }
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             
             if (jError) {
