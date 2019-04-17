@@ -119,7 +119,7 @@
     // 当你是把获得的高度来布局控件的View的高度的时候.size转化为ceilf(size.height)。
     // ceilf 小数点去掉，进 1
     CGSize size = [self getStringSizeWithText:text font:font height:MAXFLOAT width:width];
-    return ceilf(size.height);
+    return ceilf(size.height) + 1;
 }
 
 /**
@@ -129,7 +129,7 @@
     // 当你是把获得的高度来布局控件的View的高度的时候.size转化为ceilf(size.height)。
     // ceilf 小数点去掉，进 1
     CGSize size = [self getStringSizeWithText:text font:font height:height width:MAXFLOAT];
-    return ceilf(size.width);
+    return ceilf(size.width) + 1;
 }
 
 /**
