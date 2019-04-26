@@ -350,7 +350,9 @@ static XQSuspensionView *sView_ = nil;
 }
 
 - (void)dealloc {
+#if DEBUG
     NSLog(@"悬浮view释放");
+#endif
 }
 
 - (UIWindow *)getWindow {
