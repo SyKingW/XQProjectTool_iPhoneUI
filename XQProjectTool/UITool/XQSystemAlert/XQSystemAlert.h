@@ -10,8 +10,7 @@
 #import <UIKit/UIKit.h>
 
 // 这两个宏的意思是不用写是否为空, 其实这个是否为空, 一是为了让人看明白这个参数, 二是为了和Swift兼容
-//NS_ASSUME_NONNULL_BEGIN
-//NS_ASSUME_NONNULL_END
+NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^XQSystemAlertBlock)(UIAlertController  * _Nonnull alert, NSUInteger index);
 typedef void(^XQSystemAlertCancelBlock)(UIAlertController * _Nonnull alert);
@@ -124,7 +123,7 @@ typedef void(^XQSystemAlertActionBlock)(UIAlertController * _Nonnull alert);
 
 @end
 
-
+NS_ASSUME_NONNULL_END
 
 
 
