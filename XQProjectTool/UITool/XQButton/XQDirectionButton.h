@@ -62,6 +62,13 @@ NS_ASSUME_NONNULL_BEGIN
  @note 不包括和文字的间距
  */
 @property (nonatomic, assign) CGFloat xq_imgMargin;
+    
+/**
+ 图片大小
+ 
+ @note 如果设置这个了, xq_imgMargin 就无效
+ */
+@property (nonatomic, assign) CGFloat xq_imgSize;
 
 /** 文字边距, 默认 0
  
@@ -78,6 +85,23 @@ NS_ASSUME_NONNULL_BEGIN
  XQDirectionButtonDirectionLeft, XQDirectionButtonDirectionRight 则直接设置 textAlignment 属性, 左右而已
  */
 @property (nonatomic, assign) BOOL xq_labTop;
+
+/**
+ YES 显示 badge
+ */
+@property (nonatomic, assign) BOOL xq_showBadge;
+
+/** 显示数字 */
+@property (nonatomic, copy) NSString *xq_badge;
+
+/** 0的时候是否显示
+ YES: 显示
+ NO: 不显示
+ 默认为 NO
+ */
+@property (nonatomic, assign) BOOL xq_badgeZeroShow;
+
+
 
 /**
  获取字符串高度

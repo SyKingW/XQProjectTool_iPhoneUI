@@ -165,6 +165,8 @@ typedef NS_ENUM(NSInteger, XQOpenURL) {
 + (BOOL)judgeWithIndex:(XQOpenURL)index title:(NSString *)title message:(NSString *)message {
     
 #if TARGET_OS_IPHONE
+    
+    // 后面这些被禁了
     // 相机，相册，定位，麦克风，蓝牙，通讯录，通知
     //NSArray *URLStrArr = nil;
 //#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
