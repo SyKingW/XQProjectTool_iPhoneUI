@@ -102,6 +102,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL xq_badgeZeroShow;
 
 
+/// 刷新数量
+- (void)reloadUI;
 
 /**
  获取字符串高度

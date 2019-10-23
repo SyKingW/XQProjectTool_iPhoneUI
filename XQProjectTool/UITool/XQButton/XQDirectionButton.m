@@ -35,6 +35,10 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    [self reloadUI];
+}
+
+- (void)reloadUI {
     if (self.xq_direction == XQDirectionButtonDirectionNormal) {
         
     }else {
@@ -142,13 +146,14 @@
             }else {
                 self.xq_badgeLab.hidden = YES;
             }
+        }else {
+            self.xq_badgeLab.hidden = NO;
         }
         
         self.xq_badgeLab.center = CGPointMake(self.imageView.frame.origin.x + self.imageView.frame.size.width, self.imageView.frame.origin.y + 0);
         self.xq_badgeLab.text = self.xq_badge;
         [self addSubview:self.xq_badgeLab];
     }
-    
 }
 
 
