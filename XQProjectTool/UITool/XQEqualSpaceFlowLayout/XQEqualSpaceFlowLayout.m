@@ -61,7 +61,7 @@
         UICollectionViewLayoutAttributes *nextAttr = index + 1 == layoutAttributes.count ?
         nil : layoutAttributes[index + 1];//下一个cell 位置信息
         
-        NSLog(@"%@", NSStringFromCGRect(currentAttr.frame));
+//        NSLog(@"%@", NSStringFromCGRect(currentAttr.frame));
         
         //加入临时数组
         [layoutAttributesTemp addObject:currentAttr];
