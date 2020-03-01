@@ -79,7 +79,13 @@
         return;
     }
     NSString *url = [NSString stringWithFormat:@"http://api.fir.im/apps/latest/%@?api_token=%@", bID, token];
-    [self GET:url succeed:success failure:failure];
+    [self GET:url succeed:^(id responseObject) {
+        if (success) {
+            if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                success(responseObject);
+            }
+        }
+    } failure:failure];
 }
 #endif
 
