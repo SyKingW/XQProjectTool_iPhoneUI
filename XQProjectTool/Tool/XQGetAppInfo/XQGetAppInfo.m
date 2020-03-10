@@ -78,11 +78,19 @@
         }
         return;
     }
-    NSString *url = [NSString stringWithFormat:@"http://api.fir.im/apps/latest/%@?api_token=%@", bID, token];
+//    NSString *url = [NSString stringWithFormat:@"http://api.fir.im/apps/latest/%@?api_token=%@", bID, token];
+    NSString *url = [NSString stringWithFormat:@"http://api.bq04.com/apps/%@?api_token=%@", bID, token];
     [self GET:url succeed:^(id responseObject) {
-        if (success) {
-            if ([responseObject isKindOfClass:[NSDictionary class]]) {
+        // 2020年, fir 崩溃过一次，返回的是html字符串
+        // 所以这里还是判断一下类型吧, 其他就算错误
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            if (success) {
                 success(responseObject);
+            }
+        }else {
+            if (failure) {
+                NSError *error = [NSError errorWithDomain:@"返回数据类型错误" code:9998 userInfo:@{@"content":responseObject}];
+                failure(error);
             }
         }
     } failure:failure];
