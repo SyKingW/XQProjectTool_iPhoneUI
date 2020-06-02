@@ -193,6 +193,7 @@
 
 #pragma mark - 数据字典转换二进制流
 + (NSData*)getDataFromDic:(NSDictionary *)dic {
+    
     NSString *string = nil;
     NSArray *array = [dic allKeys];
     for (int i = 0; i<array.count; i++) {

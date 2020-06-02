@@ -42,6 +42,14 @@ typedef void(^XQGetAppInfoFailureBlock)(NSError *error);
 + (void)getFirInfoWithToken:(NSString *)token bID:(NSString *)bID success:(XQGetAppInfoSucceedBlock)success failure:(XQGetAppInfoFailureBlock)failure;
 #endif
 
+
+
+/// post 请求
++ (NSURLSessionDataTask *)POST:(NSString *)URLStr param:(NSDictionary *)param succeed:(XQGetAppInfoSucceedBlock)succeed failure:(XQGetAppInfoFailureBlock)failure;
+
+/// get 请求
++ (NSURLSessionDataTask *)GET:(NSString *)URLStr succeed:(XQGetAppInfoSucceedBlock)succeed failure:(XQGetAppInfoFailureBlock)failure;
+
 @end
 
 
