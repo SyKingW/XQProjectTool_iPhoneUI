@@ -42,9 +42,21 @@ static CGFloat statusHeight_ = -1;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
 #if TARGET_OS_IPHONE
-            //44是正常高度, 64是开启热点, QQ语音, 定位等等, 会增加20
-        if ([UIApplication sharedApplication].statusBarFrame.size.height == 44 ||
-            [UIApplication sharedApplication].statusBarFrame.size.height == 64) {
+        
+        CGFloat height = 0;
+        if (@available(iOS 13.0, *)) {
+            UIWindowScene *ws = (UIWindowScene *)[UIApplication sharedApplication].connectedScenes.allObjects.firstObject;
+            height = ws.statusBarManager.statusBarFrame.size.height;
+        } else {
+            height = [UIApplication sharedApplication].statusBarFrame.size.height;
+        }
+        
+        // 44是正常高度, 64是开启热点, QQ语音, 定位等等, 会增加20
+        // iOS 14 之后，iPhone x 这些获取的是 48
+        
+        if (height == 44 ||
+            height == 64 ||
+            height == 48) {
             statusHeight_ = 44;
         }else {
             statusHeight_ = 20;
