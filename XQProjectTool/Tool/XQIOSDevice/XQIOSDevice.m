@@ -51,12 +51,15 @@ static CGFloat statusHeight_ = -1;
             height = [UIApplication sharedApplication].statusBarFrame.size.height;
         }
         
-        // 44是正常高度, 64是开启热点, QQ语音, 定位等等, 会增加20
-        // iOS 14 之后，iPhone x 这些获取的是 48
+        // statusHeight_ 20 是正常高度, 40 是开启热点, QQ语音, 定位等等, 会增加20
+        // 但是全面屏就 statusHeight_ 都有44以上了
+        // iOS 14 之后，iPhone x 这些获取的是 48, 47 这样
         
-        if (height == 44 ||
-            height == 64 ||
-            height == 48) {
+//        height == 44 ||
+//            height == 64 ||
+//            height == 48
+        
+        if (height >= 44) {
             statusHeight_ = 44;
         }else {
             statusHeight_ = 20;
@@ -97,7 +100,7 @@ static CGFloat statusHeight_ = -1;
 }
 
 + (CGFloat)getTabbarHeight {
-    if ([self getStatusHeight] == 44) {
+    if ([self getStatusHeight] >= 44) {
         return 83;
     }
     return 49;
