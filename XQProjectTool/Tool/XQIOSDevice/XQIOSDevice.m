@@ -60,7 +60,8 @@ static CGFloat statusHeight_ = -1;
 //            height == 48
         
         if (height >= 44) {
-            statusHeight_ = 44;
+//            statusHeight_ = 44;
+            statusHeight_ = height;
         }else {
             statusHeight_ = 20;
         }
@@ -78,7 +79,7 @@ static CGFloat statusHeight_ = -1;
     if (@available(iOS 11.0, *)) {
         //[UIApplication sharedApplication].statusBarOrientation
         //[UIDevice currentDevice].orientation
-        NSString *iPhoneType = [XQIOSDeviceType getIPhoneType];
+        NSString *iPhoneType = [XQAppleDevice getIPhoneType];
         // 真机
         if ([iPhoneType isEqualToString:@"iPhone X"]) {
             statusHeight_ = 44;
@@ -105,7 +106,7 @@ static CGFloat statusHeight_ = -1;
     }
     return 49;
     
-    if ([[XQIOSDeviceType getIPhoneType] isEqualToString:@"iPhone X"]) {
+    if ([[XQAppleDevice getIPhoneType] isEqualToString:@"iPhone X"]) {
         return 83;
     }
     

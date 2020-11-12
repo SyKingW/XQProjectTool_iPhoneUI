@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
-#import <XQProjectTool/XQIOSDeviceType.h>
+#import <XQProjectTool/XQAppleDevice.h>
 
 #define XQ_NHeight [XQIOSDevice getNavigationHeight]
 #define XQ_StatusHeight [XQIOSDevice getStatusHeight]
