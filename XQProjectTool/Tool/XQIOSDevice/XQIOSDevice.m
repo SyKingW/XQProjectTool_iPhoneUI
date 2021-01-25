@@ -59,7 +59,9 @@ static CGFloat statusHeight_ = -1;
 //            height == 64 ||
 //            height == 48
         
-        if (height >= 44) {
+        // 不能 44，在放大模式下，如果字体默认情况下，是39 (iPhone 12 Pro测)，有些机型是 43 等等
+//        if (height >= 44) {
+        if (height >= 30) {
 //            statusHeight_ = 44;
             statusHeight_ = height;
         }else {
@@ -69,47 +71,12 @@ static CGFloat statusHeight_ = -1;
     });
     
     return statusHeight_;
-    
-    if (statusHeight_ != -1) {
-        return statusHeight_;
-    }
-    
-    statusHeight_ = 20;
-    
-    if (@available(iOS 11.0, *)) {
-        //[UIApplication sharedApplication].statusBarOrientation
-        //[UIDevice currentDevice].orientation
-        NSString *iPhoneType = [XQAppleDevice getIPhoneType];
-        // 真机
-        if ([iPhoneType isEqualToString:@"iPhone X"]) {
-            statusHeight_ = 44;
-            
-            // 模拟机
-        }else if ([iPhoneType isEqualToString:@"iPhone Simulator"]) {
-#if TARGET_OS_IPHONE
-            CGRect rect = [UIScreen mainScreen].bounds;
-            if (rect.size.height == 812 && rect.size.width == 375) {
-                statusHeight_ = 44;
-            }
-#endif
-            
-        }
-        
-    }
-    
-    return statusHeight_;
 }
 
 + (CGFloat)getTabbarHeight {
-    if ([self getStatusHeight] >= 44) {
+    if ([self getStatusHeight] >= 30) {
         return 83;
     }
-    return 49;
-    
-    if ([[XQAppleDevice getIPhoneType] isEqualToString:@"iPhone X"]) {
-        return 83;
-    }
-    
     return 49;
 }
 
